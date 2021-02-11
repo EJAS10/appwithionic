@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+<ion-card center>
+  <ion-card-header>
+  Iniciar sesion
+  </ion-card-header>
+  <ion-card-content>
+    <ion-list>
+      <ion-item>
+        <ion-label fixed>Usuario:</ion-label>
+        <ion-input type="text"[(ngModel)]="user"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>Contraseña:</ion-label>
+        <ion-input type="password"[(ngModel)]="pass"></ion-input>
+      </ion-item>
+    </ion-list>
+    <div padding class="Botons">
+      <ion-button  block (click)="Singup()">Acceder</ion-button>
+    </div>
+  </ion-card-content>
+<ion-card style="background-color: red;" color="danger" *ngIf="Mensaje">
+  Usuario o Contraseña incorrecto/a
+</ion-card>
+</ion-card>
+</ion-content>
+ 
