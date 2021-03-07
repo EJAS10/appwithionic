@@ -62,6 +62,15 @@ const routes: Routes = [
         ]        
       },
       {
+        path: 'tab7',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../audio-reprod/audio-reprod.module').then( m => m.AudioReprodPageModule)
+          }
+        ]        
+      },
+      {
         path: '',
         redirectTo: '/tabs/tab5',
         pathMatch: 'full'

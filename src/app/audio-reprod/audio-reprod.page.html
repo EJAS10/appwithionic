@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Musica</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Musica</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div>
+    <ion-title>Canciones</ion-title>
+    <ion-list>
+     <ion-item (click)="playone()"> 
+      <ion-icon name="musical-notes"></ion-icon>
+        <p>mario bros game over</p>     
+     </ion-item>
+
+     <ion-item (click)="playtwo()">
+      <ion-icon name="musical-notes"></ion-icon>
+      <p>ringtones-pink-panther</p>
+     </ion-item>
+
+     <ion-item (click)="playthree()">
+      <ion-icon name="musical-notes"></ion-icon>
+      <p>ringtones-the-avengers</p>       
+    </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
