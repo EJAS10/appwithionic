@@ -53,15 +53,24 @@ const routes: Routes = [
         ]        
       },
       {
+        path: 'tab6',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../mapa-integration/mapa-integration.module').then( m => m.MapaIntegrationPageModule)
+          }
+        ]        
+      },
+      {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/tabs/tab5',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/tabs/tab5',
     pathMatch: 'full'
   }
 ];
