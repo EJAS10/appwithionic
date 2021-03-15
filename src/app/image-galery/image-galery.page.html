@@ -7,8 +7,8 @@
 <ion-content [fullscreen]="true">
   <ion-grid>
     <ion-row>
-      <ion-col size="6" *ngFor="let photo of photos; index as position">
-        <ion-img src="{{ photo.base64 ? photo.base64 : photo.webviewPath }}"></ion-img>
+      <ion-col size="6" *ngFor="let photo of image; index as position" slot="start">
+        <ion-img [src]="photo" *ngIf="photo"></ion-img>
       </ion-col>
     </ion-row>
   </ion-grid>

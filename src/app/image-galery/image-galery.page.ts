@@ -7,7 +7,8 @@ import { Camera } from '@ionic-native/camera/ngx';
   styleUrls: ['./image-galery.page.scss'],
 })
 export class ImageGaleryPage implements OnInit {
- image: any;
+//  image: any;
+ private image: string[] = [];
   constructor(public Camera: Camera) { }
 
   sacarCamara(){
@@ -22,17 +23,31 @@ export class ImageGaleryPage implements OnInit {
       correctOrientation: true,
       saveToPhotoAlbum: true
     }).then(resultado => {
-      this.image = "data:image/jpeg;base64,"+ resultado
+     const item = this.getPositionItem(this.image.length);
+      this.image[item] = "data:image/jpeg;base64,"+ resultado
     }).catch(error => {
       console.log(error)
     })
   }
 
+  private getPositionItem(image) {
+    if (image == 0) {
+      return 0;
+    } else {
+      return image + 1;
+    }
+  }
   tomarGaleria(){
 
   }
 
+  // loadSaved() {
+  //   this.storage.get('photos').then((photos) => {
+  //     this.photos = photos || [];
+  //   });
+  }
   ngOnInit() {
+
   }
 
 }
