@@ -71,6 +71,15 @@ const routes: Routes = [
         ]        
       },
       {
+        path: 'tab8',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../image-galery/image-galery.module').then( m => m.ImageGaleryPageModule)
+          }
+        ]        
+      },
+      {
         path: '',
         redirectTo: '/tabs/tab5',
         pathMatch: 'full'
