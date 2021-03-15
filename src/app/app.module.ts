@@ -7,7 +7,8 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BLE } from '@ionic-native/ble/ngx';
-import { NativeAudio } from '@ionic-native/native-audio/ngx'
+import { NativeAudio } from '@ionic-native/native-audio/ngx';
+import { Camera } from '@ionic-native/camera/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,6 +17,7 @@ import { NativeAudio } from '@ionic-native/native-audio/ngx'
    providers: [
     BLE,
     NativeAudio,
+    Camera,
   { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
 ],
   bootstrap: [AppComponent],
