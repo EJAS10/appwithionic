@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { BLE } from '@ionic-native/ble/ngx';
 import { NativeAudio } from '@ionic-native/native-audio/ngx';
 import { Camera } from '@ionic-native/camera/ngx';
+import { WebView } from '@ionic-native/ionic-webview/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,6 +19,7 @@ import { Camera } from '@ionic-native/camera/ngx';
     BLE,
     NativeAudio,
     Camera,
+    WebView,
   { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
 ],
   bootstrap: [AppComponent],
