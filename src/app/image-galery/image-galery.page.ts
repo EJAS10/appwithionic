@@ -7,9 +7,11 @@ import { Camera } from '@ionic-native/camera/ngx';
   styleUrls: ['./image-galery.page.scss'],
 })
 export class ImageGaleryPage implements OnInit {
-//  image: any;
  private image: string[] = [];
-  constructor(public Camera: Camera) { }
+  constructor(public Camera: Camera) { 
+    this.image[0] = 'assets/imagen/1.jpg';
+    this.image[1] = 'assets/imagen/2.jpg';
+  }
 
   sacarCamara(){
     this.Camera.getPicture({
@@ -41,11 +43,7 @@ export class ImageGaleryPage implements OnInit {
 
   }
 
-  // loadSaved() {
-  //   this.storage.get('photos').then((photos) => {
-  //     this.photos = photos || [];
-  //   });
-  }
+  
   ngOnInit() {
 
   }
