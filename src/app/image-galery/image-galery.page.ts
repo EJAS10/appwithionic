@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Camera } from '@ionic-native/camera/ngx';
+import {WebView} from '@ionic-native/ionic-webview/ngx';
 
 @Component({
   selector: 'app-image-galery',
@@ -8,14 +9,14 @@ import { Camera } from '@ionic-native/camera/ngx';
 })
 export class ImageGaleryPage implements OnInit {
  private image: string[] = [];
-  constructor(public Camera: Camera) { 
+  constructor(private Camera: Camera, private WebView: WebView) { 
     this.image[0] = 'assets/imagen/1.jpg';
     this.image[1] = 'assets/imagen/2.jpg';
   }
 
   sacarCamara(){
     this.Camera.getPicture({
-      destinationType: this.Camera.DestinationType.DATA_URL,
+      destinationType: this.Camera.DestinationType.FILE_URI,
       sourceType: this.Camera.PictureSourceType.CAMERA,
       mediaType: this.Camera.MediaType.PICTURE,
       allowEdit: false,
@@ -26,7 +27,28 @@ export class ImageGaleryPage implements OnInit {
       saveToPhotoAlbum: true
     }).then(resultado => {
      const item = this.getPositionItem(this.image.length);
-      this.image[item] = "data:image/jpeg;base64,"+ resultado
+      this.image[item] =  this.WebView.convertFileSrc(resultado);
+      console.log(this.image[item]);
+      //"data:image/jpeg;base64,"+ resultado
+    }).catch(error => {
+      console.log(error)
+    })
+  }
+
+  tomarGaleria(){
+    this.Camera.getPicture({
+      destinationType: this.Camera.DestinationType.FILE_URI,
+      sourceType: this.Camera.PictureSourceType.PHOTOLIBRARY,
+      mediaType: this.Camera.MediaType.PICTURE,
+      allowEdit: false,
+      encodingType: this.Camera.EncodingType.JPEG,
+      targetHeight: 1024,
+      targetWidth: 1024,
+      correctOrientation: true
+    }).then(resultado => {
+     const item = this.getPositionItem(this.image.length);
+      this.image[item] =  this.WebView.convertFileSrc(resultado);
+      console.log(this.image[item]);
     }).catch(error => {
       console.log(error)
     })
@@ -39,11 +61,7 @@ export class ImageGaleryPage implements OnInit {
       return image + 1;
     }
   }
-  tomarGaleria(){
-
-  }
-
-  
+    
   ngOnInit() {
 
   }
