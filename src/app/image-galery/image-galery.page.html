@@ -1,11 +1,15 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Galeria</ion-title>
+    <ion-title>
+      Galeria
+    </ion-title>
+    <ion-button (click)="tomarGaleria()" slot="end">
+      <p>Buscar en galeria</p>
+    </ion-button>
   </ion-toolbar>
-  <ion-button (click)="Scan()" slot="end">
-    <p>Buscar en galeria</p>
-  </ion-button>
 </ion-header>
+
+
 
 <ion-content [fullscreen]="true">
   <ion-grid>
